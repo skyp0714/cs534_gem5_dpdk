@@ -172,10 +172,6 @@ def _get_cache_opts(level, options):
     assoc_attr = '{}_assoc'.format(level)
     if hasattr(options, assoc_attr):
         opts['assoc'] = getattr(options, assoc_attr)
-        
-    assoc_attr = '{}_clusivity'.format(level)
-    if hasattr(options, assoc_attr):
-        opts['clusivity'] = getattr(options, assoc_attr)
 
     prefetcher_attr = '{}_hwp_type'.format(level)
     if hasattr(options, prefetcher_attr):
@@ -183,7 +179,7 @@ def _get_cache_opts(level, options):
 
     replacement_attr = '{}_rpl_type'.format(level)
     if hasattr(options, replacement_attr):
-        opts['replacement_policy'] = _get_rpl(getattr(options, replacement_attr))
+        opts['repl_policy'] = _get_rpl(getattr(options, replacement_attr))
 
     return opts
 

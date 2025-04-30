@@ -3,3 +3,9 @@ venv
 ckpts
 rundir
 gem5/build
+dpdk-pktgen-build/*
+reources-dpdk/*
+buildroot/*
+bench*
+resources-dpdk/*
+m5out/*

@@ -3909,6 +3909,10 @@ main(int argc, char** argv)
 
 		printf("No commandline core given, start packet forwarding\n");
 		start_packet_forwarding(tx_first);
+
+		printf("Taking post-initialization checkpoint . . .\n");
+        m5_checkpoint(0, 0);
+
 		if (stats_period != 0) {
 			uint64_t prev_time = 0, cur_time, diff_time = 0;
 			uint64_t timer_period;
@@ -3930,9 +3934,7 @@ main(int argc, char** argv)
 				sleep(1);
 			}
 		}
-		
-		printf("Taking post-initialization checkpoint . . .\n");
-                m5_checkpoint(0, 0);
+
 		printf("Press enter to exit\n");
 		rc = read(0, &c, 1);
 		pmd_test_exit();
